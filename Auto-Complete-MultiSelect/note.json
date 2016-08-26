@@ -1,1 +1,209 @@
-{"paragraphs":[{"text":"%angular\n\n    <select id=\"tokenize\" multiple=\"multiple\" class=\"tokenize-sample\">\n        <option ng-repeat=\"name in selectList\" value=\"{{name}}\">{{name}}</option>\n    </select>\n    \n    <button style=\"margin:10px 0 10px 0;\" class=\"btn btn-sm btn-success\" onclick='sendSelected()'>Update</button>\n    \n    <style>\n    #tokenize, .Tokenize, .Tokenize .TokensContainer {\n        width: 100%;\n    }\n    </style>\n    \n    <script>\n    \n    //\n    // LOADING THE COMPONENT\n    //\n    \n    // Include the component css\n    var fileref=document.createElement(\"link\");\n    fileref.setAttribute(\"rel\", \"stylesheet\");\n    fileref.setAttribute(\"type\", \"text/css\");\n    fileref.setAttribute(\"href\", '//cdn.rawgit.com/zellerda/Tokenize/master/jquery.tokenize.css');\n    if (typeof fileref!=\"undefined\")\n        document.getElementsByTagName(\"head\")[0].appendChild(fileref);\n    \n    // Remove some CSS from Zeppelin so that the component renders well\n    var id = document.getElementById(\"tokenize\").parentElement.getAttribute('id');\n    document.getElementById(id).style.overflow = \"visible\";\n    \n    // Load the js and render the component after\n    jQuery.when(\n        // Load the js\n        jQuery.getScript('//cdn.rawgit.com/zellerda/Tokenize/master/jquery.tokenize.js'),\n        jQuery(\"#tokenize\").ready,\n        jQuery.Deferred(function( deferred ){\n            jQuery( deferred.resolve );\n        })\n    ).done(function(){\n        jQuery('#tokenize').tokenize();\n    });\n    \n    \n    \n    // Send selected items to Backend\n    function sendSelected() {\n        var selected = jQuery('#tokenize').tokenize().toArray();\n        console.log('Hello selection %o', selected);\n        //for (var i = 0; i < selected.length; i++) {\n        //    results[i] = selected[i].value;\n        //}\n        angular.element('html').scope().compiledScope.selections = selected;\n    }\n    \n    </script>","dateUpdated":"Jan 26, 2016 11:45:40 AM","config":{"colWidth":12,"graph":{"mode":"table","height":300,"optionOpen":false,"keys":[],"values":[],"groups":[],"scatter":{}},"enabled":true,"editorMode":"ace/mode/scala"},"settings":{"params":{},"forms":{}},"jobName":"paragraph_1453771186518_1069155625","id":"20160126-101946_1530650725","result":{"code":"SUCCESS","type":"ANGULAR","msg":"<select id=\"tokenize\" multiple=\"multiple\" class=\"tokenize-sample\">\n        <option ng-repeat=\"name in selectList\" value=\"{{name}}\">{{name}}</option>\n    </select>\n    \n    <button style=\"margin:10px 0 10px 0;\" class=\"btn btn-sm btn-success\" onclick='sendSelected()'>Update</button>\n    \n    <style>\n    #tokenize, .Tokenize, .Tokenize .TokensContainer {\n        width: 100%;\n    }\n    </style>\n    \n    <script>\n    \n    //\n    // LOADING THE COMPONENT\n    //\n    \n    // Include the component css\n    var fileref=document.createElement(\"link\");\n    fileref.setAttribute(\"rel\", \"stylesheet\");\n    fileref.setAttribute(\"type\", \"text/css\");\n    fileref.setAttribute(\"href\", '//cdn.rawgit.com/zellerda/Tokenize/master/jquery.tokenize.css');\n    if (typeof fileref!=\"undefined\")\n        document.getElementsByTagName(\"head\")[0].appendChild(fileref);\n    \n    // Remove some CSS from Zeppelin so that the component renders well\n    var id = document.getElementById(\"tokenize\").parentElement.getAttribute('id');\n    document.getElementById(id).style.overflow = \"visible\";\n    \n    // Load the js and render the component after\n    jQuery.when(\n        // Load the js\n        jQuery.getScript('//cdn.rawgit.com/zellerda/Tokenize/master/jquery.tokenize.js'),\n        jQuery(\"#tokenize\").ready,\n        jQuery.Deferred(function( deferred ){\n            jQuery( deferred.resolve );\n        })\n    ).done(function(){\n        jQuery('#tokenize').tokenize();\n    });\n    \n    \n    \n    // Send selected items to Backend\n    function sendSelected() {\n        var selected = jQuery('#tokenize').tokenize().toArray();\n        console.log('Hello selection %o', selected);\n        //for (var i = 0; i < selected.length; i++) {\n        //    results[i] = selected[i].value;\n        //}\n        angular.element('html').scope().compiledScope.selections = selected;\n    }\n    \n    </script>"},"dateCreated":"Jan 26, 2016 10:19:46 AM","dateStarted":"Jan 26, 2016 11:45:40 AM","dateFinished":"Jan 26, 2016 11:45:40 AM","status":"FINISHED","progressUpdateIntervalMs":500,"$$hashKey":"object:261"},{"text":"%spark\n\n/*\n Data Ingestion Paragraph\n Auto-complete list will be automatically updated when selectList change on back-end\n*/\nz.angularUnbind(\"selectList\")\nz.angularUnbind(\"selections\")\nz.angularBind(\"selectList\", Array(\"Apache\",\"Zeppelin\",\"Moon\", \"Damien\", \"Anthony\", \"Sejun\"))\nz.angularBind(\"selections\", Array())","dateUpdated":"Jan 26, 2016 11:46:22 AM","config":{"colWidth":12,"graph":{"mode":"table","height":300,"optionOpen":false,"keys":[],"values":[],"groups":[],"scatter":{}},"enabled":true},"settings":{"params":{},"forms":{}},"jobName":"paragraph_1453774612156_-28866307","id":"20160126-111652_1391278108","result":{"code":"SUCCESS","type":"TEXT","msg":""},"dateCreated":"Jan 26, 2016 11:16:52 AM","dateStarted":"Jan 26, 2016 11:46:22 AM","dateFinished":"Jan 26, 2016 11:46:23 AM","status":"FINISHED","progressUpdateIntervalMs":500,"$$hashKey":"object:262"},{"text":"z.angular(\"selections\")","dateUpdated":"Jan 26, 2016 11:46:29 AM","config":{"colWidth":12,"graph":{"mode":"table","height":300,"optionOpen":false,"keys":[],"values":[],"groups":[],"scatter":{}},"enabled":true,"editorMode":"ace/mode/scala"},"settings":{"params":{},"forms":{}},"jobName":"paragraph_1453774627286_-1356619437","id":"20160126-111707_2078222307","result":{"code":"SUCCESS","type":"TEXT","msg":"res59: Object = Array(Sejun)\n"},"dateCreated":"Jan 26, 2016 11:17:07 AM","dateStarted":"Jan 26, 2016 11:46:29 AM","dateFinished":"Jan 26, 2016 11:46:29 AM","status":"FINISHED","progressUpdateIntervalMs":500,"$$hashKey":"object:263"},{"dateUpdated":"Jan 26, 2016 11:45:40 AM","config":{"colWidth":12,"graph":{"mode":"table","height":300,"optionOpen":false,"keys":[],"values":[],"groups":[],"scatter":{}},"enabled":true},"settings":{"params":{},"forms":{}},"jobName":"paragraph_1453776094349_-725327522","id":"20160126-114134_1046110991","result":{"code":"SUCCESS","type":"TEXT"},"dateCreated":"Jan 26, 2016 11:41:34 AM","dateStarted":"Jan 26, 2016 11:45:42 AM","dateFinished":"Jan 26, 2016 11:45:42 AM","status":"FINISHED","progressUpdateIntervalMs":500,"$$hashKey":"object:264"}],"name":"Auto-Complete Component","id":"2B931TB53","angularObjects":{"2BAZJPKE6":[],"2B9WT942N":[],"2BC7626VS":[],"2BAY323Q2":[{"name":"selectList","object":["Apache","Zeppelin","Moon","Damien","Anthony","Sejun"],"noteId":"2B931TB53"},{"name":"selections","object":["Sejun"],"noteId":"2B931TB53"},{"name":"run","object":1,"noteId":"2B931TB53"}],"2B9BN58Q4":[],"2BBEYBWXA":[],"2B8VW92RS":[],"2BBJT7RB4":[],"2B9DXXZRJ":[],"2BARGR21W":[],"2BAXNTMMY":[],"2BAZS95BW":[],"2BA5Y8XCZ":[],"2BBBDTQ7Y":[]},"config":{"looknfeel":"default"},"info":{}}
+{
+  "paragraphs": [
+    {
+      "text": "%spark\n\n/*\n Data Ingestion Paragraph\n Auto-complete list will be automatically updated when selectList change on back-end\n*/\nz.angularUnbind(\"selectList\")\nz.angularUnbind(\"selections\")\nz.angularBind(\"selectList\", Array(\"Apache\",\"Zeppelin\",\"Moon\", \"Damien\", \"Anthony\", \"Sejun\"))\nz.angularBind(\"selections\", Array())",
+      "dateUpdated": "Aug 26, 2016 8:57:26 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {},
+          "map": {
+            "baseMapType": "Streets",
+            "isOnline": true,
+            "pinCols": []
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1472169413072_610126469",
+      "id": "20160126-111652_1391278108",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Aug 26, 2016 8:56:53 AM",
+      "dateStarted": "Aug 26, 2016 8:57:26 AM",
+      "dateFinished": "Aug 26, 2016 8:58:13 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%angular\n\n    \u003cselect id\u003d\"tokenize\" multiple\u003d\"multiple\" class\u003d\"tokenize-sample\"\u003e\n        \u003coption ng-repeat\u003d\"name in selectList\" value\u003d\"{{name}}\"\u003e{{name}}\u003c/option\u003e\n    \u003c/select\u003e\n    \n    \u003cstyle\u003e\n    #tokenize, .Tokenize, .Tokenize .TokensContainer {\n        width: 100%;\n    }\n    \u003c/style\u003e\n    \n    \u003cscript\u003e\n    \n    //\n    // LOADING THE COMPONENT\n    //\n    \n    // Include the component css\n    var fileref\u003ddocument.createElement(\"link\");\n    fileref.setAttribute(\"rel\", \"stylesheet\");\n    fileref.setAttribute(\"type\", \"text/css\");\n    fileref.setAttribute(\"href\", \u0027//cdn.rawgit.com/zellerda/Tokenize/master/jquery.tokenize.css\u0027);\n    if (typeof fileref!\u003d\"undefined\")\n        document.getElementsByTagName(\"head\")[0].appendChild(fileref);\n    \n    // Remove some CSS from Zeppelin so that the component renders well\n    var id \u003d document.getElementById(\"tokenize\").parentElement.getAttribute(\u0027id\u0027);\n    document.getElementById(id).style.overflow \u003d \"visible\";\n    \n    // Load the js and render the component after\n    jQuery.when(\n        // Load the js\n        jQuery.getScript(\u0027//cdn.rawgit.com/zellerda/Tokenize/master/jquery.tokenize.js\u0027),\n        jQuery(\"#tokenize\").ready,\n        jQuery.Deferred(function( deferred ){\n            jQuery( deferred.resolve );\n        })\n    ).done(function(){\n        // Init the component\n        var el \u003d jQuery(\u0027#tokenize\u0027).tokenize({\n          onAddToken: updateSelected,\n          onRemoveToken: updateSelected\n        });\n        \n        // Show already selected values as token on start\n        var selected \u003d angular.element(\u0027#tokenize\u0027).scope().selections;\n        for (var i \u003d 0; i \u003c selected.length; i++) {\n          el.tokenAdd(selected[i], selected[i]);   \n        }\n    });\n    \n    function updateSelected(value, text, e) {\n      var selected \u003d jQuery(\u0027#tokenize\u0027).tokenize().toArray();\n      \n      // Take the component tokens and set them in selections\n      angular.element(\u0027#tokenize\u0027).scope().selections \u003d selected;\n    }\n    \n    \u003c/script\u003e",
+      "dateUpdated": "Aug 26, 2016 9:41:44 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {},
+          "map": {
+            "baseMapType": "Streets",
+            "isOnline": true,
+            "pinCols": []
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1472169413068_599353500",
+      "id": "20160126-101946_1530650725",
+      "result": {
+        "code": "SUCCESS",
+        "type": "ANGULAR",
+        "msg": "\u003cselect id\u003d\"tokenize\" multiple\u003d\"multiple\" class\u003d\"tokenize-sample\"\u003e\n        \u003coption ng-repeat\u003d\"name in selectList\" value\u003d\"{{name}}\"\u003e{{name}}\u003c/option\u003e\n    \u003c/select\u003e\n    \n    \u003cstyle\u003e\n    #tokenize, .Tokenize, .Tokenize .TokensContainer {\n        width: 100%;\n    }\n    \u003c/style\u003e\n    \n    \u003cscript\u003e\n    \n    //\n    // LOADING THE COMPONENT\n    //\n    \n    // Include the component css\n    var fileref\u003ddocument.createElement(\"link\");\n    fileref.setAttribute(\"rel\", \"stylesheet\");\n    fileref.setAttribute(\"type\", \"text/css\");\n    fileref.setAttribute(\"href\", \u0027//cdn.rawgit.com/zellerda/Tokenize/master/jquery.tokenize.css\u0027);\n    if (typeof fileref!\u003d\"undefined\")\n        document.getElementsByTagName(\"head\")[0].appendChild(fileref);\n    \n    // Remove some CSS from Zeppelin so that the component renders well\n    var id \u003d document.getElementById(\"tokenize\").parentElement.getAttribute(\u0027id\u0027);\n    document.getElementById(id).style.overflow \u003d \"visible\";\n    \n    // Load the js and render the component after\n    jQuery.when(\n        // Load the js\n        jQuery.getScript(\u0027//cdn.rawgit.com/zellerda/Tokenize/master/jquery.tokenize.js\u0027),\n        jQuery(\"#tokenize\").ready,\n        jQuery.Deferred(function( deferred ){\n            jQuery( deferred.resolve );\n        })\n    ).done(function(){\n        // Init the component\n        var el \u003d jQuery(\u0027#tokenize\u0027).tokenize({\n          onAddToken: updateSelected,\n          onRemoveToken: updateSelected\n        });\n        \n        // Show already selected values as token on start\n        var selected \u003d angular.element(\u0027#tokenize\u0027).scope().selections;\n        for (var i \u003d 0; i \u003c selected.length; i++) {\n          el.tokenAdd(selected[i], selected[i]);   \n        }\n    });\n    \n    function updateSelected(value, text, e) {\n      var selected \u003d jQuery(\u0027#tokenize\u0027).tokenize().toArray();\n      \n      // Take the component tokens and set them in selections\n      angular.element(\u0027#tokenize\u0027).scope().selections \u003d selected;\n    }\n    \n    \u003c/script\u003e"
+      },
+      "dateCreated": "Aug 26, 2016 8:56:53 AM",
+      "dateStarted": "Aug 26, 2016 9:41:44 AM",
+      "dateFinished": "Aug 26, 2016 9:41:44 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "z.angular(\"selections\")",
+      "dateUpdated": "Aug 26, 2016 9:42:03 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {},
+          "map": {
+            "baseMapType": "Streets",
+            "isOnline": true,
+            "pinCols": []
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1472169413072_610126469",
+      "id": "20160126-111707_2078222307",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "\nres7: Object \u003d Array(Moon, Damien)\n"
+      },
+      "dateCreated": "Aug 26, 2016 8:56:53 AM",
+      "dateStarted": "Aug 26, 2016 9:42:03 AM",
+      "dateFinished": "Aug 26, 2016 9:42:04 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "",
+      "dateUpdated": "Aug 26, 2016 8:57:08 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {},
+          "map": {
+            "baseMapType": "Streets",
+            "isOnline": true,
+            "pinCols": []
+          }
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1472169413073_609741720",
+      "id": "20160126-114134_1046110991",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT"
+      },
+      "dateCreated": "Aug 26, 2016 8:56:53 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Auto-Complete Component",
+  "id": "2BUHPHC5K",
+  "lastReplName": {
+    "value": "angular"
+  },
+  "angularObjects": {
+    "2BUMHU2NS:shared_process": [],
+    "2BUYKC58W:shared_process": [],
+    "2BUBYUHTZ:shared_process": [],
+    "2BTDV77R7:shared_process": [],
+    "2BUAPXX77:shared_process": [],
+    "2BVZJGTUN:shared_process": [],
+    "2BWTJ537C:shared_process": [],
+    "2BTBGT8G9:shared_process": [],
+    "2BWD22TAT:shared_process": [],
+    "2BV236YEG:shared_process": [],
+    "2BV1UGM6V:shared_process": [
+      {
+        "name": "selectList",
+        "object": [
+          "Apache",
+          "Zeppelin",
+          "Moon",
+          "Damien",
+          "Anthony",
+          "Sejun"
+        ],
+        "noteId": "2BUHPHC5K"
+      },
+      {
+        "name": "selections",
+        "object": [
+          "Moon",
+          "Damien"
+        ],
+        "noteId": "2BUHPHC5K"
+      }
+    ],
+    "2BX1AGKHF:shared_process": [],
+    "2BWHZ2AK5:shared_process": [],
+    "2BUEXKUE1:shared_process": [],
+    "2BU8KTA7C:shared_process": [],
+    "2BVFBYYW4:shared_process": [],
+    "2BWG5JEAV:shared_process": [],
+    "2BWX6Q96N:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
